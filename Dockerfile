@@ -13,7 +13,7 @@ RUN npm install
 COPY ui/ ./
 RUN npm run build
 
-FROM alpine
+FROM alpine:3.18.3
 WORKDIR /app
 COPY --from=build-back /app/wg-gen-web-linux .
 COPY --from=build-front /app/dist ./ui/dist
