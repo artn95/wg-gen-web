@@ -14,7 +14,7 @@ RUN npm install
 COPY ui/ ./
 RUN npm run build
 
-FROM debian
+FROM debian:12.5
 WORKDIR /app
 COPY --from=build-back /app/wg-gen-web-linux .
 COPY --from=build-back /go/bin/dlv .
